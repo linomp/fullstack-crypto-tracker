@@ -20,8 +20,12 @@ namespace crypto_tracker_BE.Controllers
         {
             using (var client = new BittrexClient())
             {
-                // TO-DO get candlestick values
+                // TODO change to historical values api call (candlestick?)
                 var marketHistory = await client.GetSymbolTradesAsync("ETH-BTC");
+
+                // TODO simple sequential version, append to result
+
+                // TODO map markey symbols to async tasks, await all, join result
 
                 return marketHistory.Data;
             }
