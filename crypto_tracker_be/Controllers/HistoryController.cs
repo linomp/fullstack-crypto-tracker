@@ -16,18 +16,25 @@ namespace crypto_tracker_BE.Controllers
     public class HistoryController : ControllerBase
     {
         [HttpGet]
-        public async Task<IEnumerable<BittrexSymbolTrade>> Get()
-        {
+        public async Task<IEnumerable<BittrexKline>> Get([FromQuery] int hoursBack=6)
+        { 
             using (var client = new BittrexClient())
             {
+                // TODO validate hoursBack: min 2, max 744
+
                 // TODO change to historical values api call (candlestick?)
-                var marketHistory = await client.GetSymbolTradesAsync("ETH-BTC");
+                var candlestick =  await client.GetKlinesAsync("ETH-BTC", KlineInterval.OneHour);
 
                 // TODO simple sequential version, append to result
 
                 // TODO map markey symbols to async tasks, await all, join result
 
-                return marketHistory.Data;
+                // TODO filter specified interval and return just closing values
+                var limited = candlestick.Data.Skip(Math.Max(0, candlestick.Data.Count() - hoursBack));
+
+                // TODO return just dates and closing values?
+
+                return limited; 
             }
         }
 
