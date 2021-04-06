@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -38,11 +39,16 @@ namespace crypto_tracker_BE
             {
                 configuration.RootPath = "crypto_tracker_FE/build";
             });
+
+            services.AddCors();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            // enable CORS (very permissive for development purposes)
+            app.UseCors(options => options.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -65,13 +71,14 @@ namespace crypto_tracker_BE
             app.UseMvc();
             app.UseSpa(spa =>
             {
-                spa.Options.SourcePath = "../crypto_tracker_FE";//Path.Join(env.ContentRootPath, "weatherclient");
+                spa.Options.SourcePath = "../crypto_tracker_FE"; //Path.Join(env.ContentRootPath, "../crypto_tracker_FE");
 
                 if (env.IsDevelopment())
                 {
                     spa.UseReactDevelopmentServer(npmScript: "start");
                 }
             });
+                       
         }
     }
 }
