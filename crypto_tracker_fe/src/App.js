@@ -5,7 +5,7 @@ import { Provider } from "react-redux"
 import { ToastProvider } from 'react-toast-notifications';
 
 import { Col, Container, Row } from 'reactstrap';
-import Test from "./components/LatestTicks"
+import LatestTicks from "./components/LatestTicks"
 
 function App() {
   return (
@@ -14,14 +14,16 @@ function App() {
         <div className="App">
           <Container className="mt-4">
             <Row noGutters={false}>
-              <Col xs="12" sm="6"><Test /></Col>
+              <Col xs="12" sm="6">
+                <LatestTicks />
+              </Col>
               <Col xs="12" sm="6">Historical</Col>
             </Row>
           </Container>
 
         </div>
       </ToastProvider>
-    </Provider>
+    </Provider >
   );
 }
 

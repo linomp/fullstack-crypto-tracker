@@ -1,26 +1,49 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { connect } from "react-redux"
-import { Card, CardBody, CardTitle, Table } from 'reactstrap'
+import { Card, CardBody, CardSubtitle, CardTitle, Table } from 'reactstrap'
 import * as actions from "../actions/tickValue"
 
+const updateInterval = 15;
 
-const LatestTicks = ({ fetchLatest, values }) => {
+const LatestTicks = ({ fetchLatest, fetchHistorical, values }) => {
+
+    const [timeLeft, setTimeLeft] = useState(updateInterval);
 
     useEffect(() => {
         fetchLatest()
-    }, [fetchLatest])
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [])
+
+    useEffect(() => {
+        const timer = setTimeout(async () => {
+
+            if (timeLeft - 1 < 1) {
+                await fetchLatest();
+                //await fetchHistorical();
+                setTimeLeft(updateInterval);
+            } else {
+                setTimeLeft(timeLeft - 1 > 0 ? timeLeft - 1 : 0);
+            }
+
+        }, 1000);
+        return () => clearTimeout(timer);
+    })
 
     return (
         <Card>
             <CardBody>
                 <CardTitle tag="h5">Latest Values</CardTitle>
-                <Table>
+                <CardSubtitle className="mt-2">
+                    {timeLeft} second{timeLeft > 1 ? 's' : ''} until next update
+                </CardSubtitle>
+                <Table className="mt-4">
                     <thead>
                         <tr>
                             <th>Market Symbol</th>
                             <th>Trade Rate</th>
                         </tr>
                     </thead>
+
                     <tbody>
                         {values.map((market, i) =>
                             <tr key={i}>
@@ -30,6 +53,7 @@ const LatestTicks = ({ fetchLatest, values }) => {
                         }
                     </tbody>
                 </Table>
+                {(values.length === 0) && <secondary>Retrieving data...</secondary>}
             </CardBody>
         </Card>
     )
@@ -42,7 +66,8 @@ const mapStateToProps = state => ({
 
 
 const mapActionToProps = {
-    fetchLatest: actions.fetchLatest
+    fetchLatest: actions.fetchLatest,
+    fetchHistorical: actions.fetchHistorical,
 }
 
 

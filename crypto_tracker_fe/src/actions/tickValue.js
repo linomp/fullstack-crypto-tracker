@@ -8,18 +8,26 @@ const DEV_SKIP_REQUESTS = true;
 
 const baseUrl = "http://localhost:5000/api"
 
+const symbolSortingFn = function (a, b) {
+    try {
+        return a.symbol.localeCompare(b.symbol);
+    } catch {
+        return 0;
+    }
+}
+
 export const fetchLatest = () => dispatch => {
     if (DEV_SKIP_REQUESTS) {
         return dispatch({
             type: ACTION_TYPES.FETCH_LATEST,
-            payload: latest
+            payload: latest.sort(symbolSortingFn)
         })
     }
     axios.get(`${baseUrl}/Ticks`)
         .then(response =>
             dispatch({
                 type: ACTION_TYPES.FETCH_LATEST,
-                payload: response.data
+                payload: response.data.sort(symbolSortingFn)
             }))
         .catch(e => console.log(e))
 }
