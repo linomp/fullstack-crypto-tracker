@@ -15,16 +15,23 @@ namespace crypto_tracker_BE.Controllers
     public class TicksController : ControllerBase
     {
         [HttpGet]
-        public async Task<IEnumerable<BittrexTick>> Get()
+        public async Task<ObjectResult> Get()
         {
             using(var client = new BittrexClient())
             {
-                var ticks = await client.GetTickersAsync();
+                try
+                {
+                    var ticks = await client.GetTickersAsync();
 
-                // TODO: handle errors
-                IEnumerable<BittrexTick> query = ticks.Data.Where(tick => MarketUtils.MarketSymbols.Contains(tick.Symbol) );
+                    IEnumerable<BittrexTick> query = ticks.Data.Where(tick => MarketUtils.MarketSymbols.Contains(tick.Symbol) );
 
-                return query;
+                    return Ok(query);
+                }
+                catch(Exception)
+                {
+                    return StatusCode(StatusCodes.Status500InternalServerError, "Something went wrong.");
+                }
+
             }
         }
 
