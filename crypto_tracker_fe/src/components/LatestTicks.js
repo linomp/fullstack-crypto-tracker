@@ -3,7 +3,7 @@ import { connect } from "react-redux"
 import { Card, CardBody, CardSubtitle, CardTitle, Table } from 'reactstrap'
 import * as actions from "../actions/tickValue"
 
-const updateInterval = 25;
+const updateInterval = 60; // in seconds
 
 const LatestTicks = ({ fetchLatest, fetchHistorical, values }) => {
 

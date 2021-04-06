@@ -39,8 +39,6 @@ namespace crypto_tracker_BE.Controllers
                         historicalValues.Add(symbol, filtered);
                     }
 
-                    // TODO map market symbols to async tasks, await all, join result
-
                     return Ok(historicalValues);
                 } 
                 catch (Exception)

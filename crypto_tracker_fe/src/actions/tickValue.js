@@ -4,7 +4,7 @@ import { store } from './store';
 import { ACTION_TYPES } from "./types"
 import { latest, historical } from "../fixtures/data"
 
-const DEV_SKIP_REQUESTS = true;
+const DEV_SKIP_REQUESTS = false;
 
 const baseUrl = "http://localhost:5000/api"
 
@@ -52,7 +52,6 @@ export const fetchHistorical = () => dispatch => {
 
 
 export const updateInterval = (hours) => dispatch => {
-    // TODO validate range here?
     dispatch({
         type: ACTION_TYPES.UPDATE_INTERVAL,
         payload: hours

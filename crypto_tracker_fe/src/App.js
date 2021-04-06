@@ -31,7 +31,3 @@ function App() {
 }
 
 export default App;
-
-// TODO
-
-// History component: 1H
