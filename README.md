@@ -1,13 +1,15 @@
 # Cryptocurrency Tracker
 
 ## Running the app
+- With a command prompt, `cd` into the `crypto_tracker_fe` directory and run: 
+    - `yarn install`
 
-- The Visual Studio project is configured so that everything can be conveniently launched with the IIS profile (server is started and a browser with the client app opens).
+- Now you can open the Visual Studio project inside `crypto_tracker_be` and launch it with the IIS profile.
+  - Note: the project is configured so that server gets started and a browser window with the client app is opened.
 
 - If this fails, you can:
   - launch the Visual Studio project with the profile `crypto_tracker_BE`
-  - `cd` into `crypto_tracker_fe` directory and run: 
-    - `yarn install`
+  - `cd` into the `crypto_tracker_fe` directory and run: 
     - `yarn start`
 
 ## Development environment
