@@ -42,7 +42,7 @@ namespace crypto_tracker_BE.Controllers
 
                     // TODO map market symbols to async tasks, await all, join result
 
-                    return Ok(historicalValues); // plot just dates and closing values
+                    return Ok(historicalValues);
                 } 
                 catch (Exception)
                 {
