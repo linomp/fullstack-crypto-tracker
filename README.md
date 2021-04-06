@@ -10,7 +10,7 @@
 
 ## Extending the markets list
 
-To extend it, open the file `MarketUtils.cs` and add desired symbols to the `quoteCurrencySymbols` array:
+In the file `crypto_tracker_be/MarketUtils.cs` you can add desired symbols to the `quoteCurrencySymbols` array:
 ```csharp
 public class MarketUtils
     {
