@@ -4,7 +4,7 @@
 - With a command prompt, `cd` into the `crypto_tracker_fe` directory and run: 
     - `yarn install`
 
-- Now you can open the Visual Studio project inside `crypto_tracker_be` and launch it with the IIS profile.
+- Now you can open the `crypto_tracker_be/crypto_tracker_BE.sln` solution with Visual Studio and launch it with the IIS profile.
   - Note: the project is configured so that server gets started and a browser window with the client app is opened.
 
 - If this fails, you can:
