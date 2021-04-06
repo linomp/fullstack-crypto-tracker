@@ -6,6 +6,7 @@ import { ToastProvider } from 'react-toast-notifications';
 
 import { Col, Container, Row } from 'reactstrap';
 import LatestTicks from "./components/LatestTicks"
+import Historical from "./components/Historical"
 
 function App() {
   return (
@@ -17,7 +18,9 @@ function App() {
               <Col xs="12" sm="6">
                 <LatestTicks />
               </Col>
-              <Col xs="12" sm="6">Historical</Col>
+              <Col xs="12" sm="6">
+                <Historical />
+              </Col>
             </Row>
           </Container>
 
@@ -31,7 +34,4 @@ export default App;
 
 // TODO
 
-// Main page layout: 10 min
-// Ticks component: 1H
-// Countdown display: 30 min
 // History component: 1H

@@ -3,7 +3,7 @@ import { connect } from "react-redux"
 import { Card, CardBody, CardSubtitle, CardTitle, Table } from 'reactstrap'
 import * as actions from "../actions/tickValue"
 
-const updateInterval = 15;
+const updateInterval = 25;
 
 const LatestTicks = ({ fetchLatest, fetchHistorical, values }) => {
 
@@ -18,8 +18,8 @@ const LatestTicks = ({ fetchLatest, fetchHistorical, values }) => {
         const timer = setTimeout(async () => {
 
             if (timeLeft - 1 < 1) {
-                await fetchLatest();
-                //await fetchHistorical();
+                fetchLatest();
+                await fetchHistorical();
                 setTimeLeft(updateInterval);
             } else {
                 setTimeLeft(timeLeft - 1 > 0 ? timeLeft - 1 : 0);
@@ -53,7 +53,7 @@ const LatestTicks = ({ fetchLatest, fetchHistorical, values }) => {
                         }
                     </tbody>
                 </Table>
-                {(values.length === 0) && <secondary>Retrieving data...</secondary>}
+                {(values.length === 0) && <span>Retrieving data...</span>}
             </CardBody>
         </Card>
     )

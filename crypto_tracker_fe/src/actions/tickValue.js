@@ -35,7 +35,7 @@ export const fetchLatest = () => dispatch => {
 export const fetchHistorical = () => dispatch => {
     if (DEV_SKIP_REQUESTS) {
         return dispatch({
-            type: ACTION_TYPES.FETCH_LATEST,
+            type: ACTION_TYPES.FETCH_HISTORICAL,
             payload: historical
         })
     }

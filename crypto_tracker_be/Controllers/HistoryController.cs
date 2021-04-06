@@ -20,7 +20,6 @@ namespace crypto_tracker_BE.Controllers
         { 
             using (var client = new BittrexClient())
             {
-                // TODO validate hoursBack: min 2, max 744
                 if(hoursBack < 2 || hoursBack > 744)
                 {
                     return StatusCode(StatusCodes.Status400BadRequest, "Hours must be between 2 and 744.");
