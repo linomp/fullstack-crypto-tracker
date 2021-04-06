@@ -9,8 +9,7 @@
 
 - If this fails, you can:
   - launch the Visual Studio project with the profile `crypto_tracker_BE`
-  - `cd` into the `crypto_tracker_fe` directory and run: 
-    - `yarn start`
+  - `cd` into the `crypto_tracker_fe` directory and run `yarn start`
 
 ## Development environment
 
