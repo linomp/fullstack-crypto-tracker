@@ -6,7 +6,7 @@
 
 
 ## Running the app locally
-- With a command prompt, `cd` into the `crypto_tracker_fe` directory and run: 
+- `cd` into the `crypto_tracker_fe` directory and run: 
     - `yarn install`
 
 - Now you can open the `crypto_tracker_be/crypto_tracker_BE.sln` solution with Visual Studio and launch it with the IIS profile.
