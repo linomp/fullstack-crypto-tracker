@@ -1,6 +1,11 @@
 # Cryptocurrency Tracker
 
-## Running the app
+## Deployed version
+- The backend is [dockerized](https://landroe.com/posts/dockerize-and-deploy-asp-net-core-app-to-digital-ocean/) and running on my own Digital Ocean droplet. ([Test endpoint directly](http://165.227.107.127:5000/api/Ticks)).
+- The frontend is taking advantage of Github Pages. ([Check the live version](https://linomp.github.io/crypto_tracker/)).
+
+
+## Running the app locally
 - With a command prompt, `cd` into the `crypto_tracker_fe` directory and run: 
     - `yarn install`
 
@@ -10,10 +15,6 @@
 - If this fails, you can:
   - launch the Visual Studio project with the profile `crypto_tracker_BE`
   - `cd` into the `crypto_tracker_fe` directory and run `yarn start`
-
-## Deployment
-- The backend is [dockerized](https://landroe.com/posts/dockerize-and-deploy-asp-net-core-app-to-digital-ocean/) and running on my own Digital Ocean droplet. ([Test endpoint directly](http://165.227.107.127:5000/api/Ticks)).
-- The frontend is taking advantage of Github Pages. ([Check the live version](https://linomp.github.io/crypto_tracker/)).
 
 ## Development environment
 
