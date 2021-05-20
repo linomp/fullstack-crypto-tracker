@@ -12,9 +12,8 @@
   - `cd` into the `crypto_tracker_fe` directory and run `yarn start`
 
 ## Deployment
-- The backend is dockerized and running on my own Digital Ocean droplet. Try: http://165.227.107.127:5000/api/Ticks
-- The frontend is taking advantage of Github Pages
-- Instructions: https://landroe.com/posts/dockerize-and-deploy-asp-net-core-app-to-digital-ocean/
+- The backend is [dockerized](https://landroe.com/posts/dockerize-and-deploy-asp-net-core-app-to-digital-ocean/) and running on my own Digital Ocean droplet. ([Test endpoint directly](http://165.227.107.127:5000/api/Ticks)).
+- The frontend is taking advantage of Github Pages. ([Check the live version](https://linomp.github.io/crypto_tracker/)).
 
 ## Development environment
 
