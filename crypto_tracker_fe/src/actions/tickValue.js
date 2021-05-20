@@ -7,7 +7,7 @@ import { latest, historical } from "../fixtures/data"
 const DEV_SKIP_REQUESTS = false;
 const LOCAL_BACKEND = false;
 
-const baseUrl = LOCAL_BACKEND ? "http://localhost:5000/api" : "http://165.227.107.127:5000/api"
+const baseUrl = LOCAL_BACKEND ? "http://localhost:5000/api" : "https://cors.bridged.cc/http://165.227.107.127:5000/api"
 
 const symbolSortingFn = function (a, b) {
     try {
