@@ -7,6 +7,8 @@ import { latest, historical } from "../fixtures/data"
 const DEV_SKIP_REQUESTS = false;
 const LOCAL_BACKEND = false;
 
+axios.defaults.headers.common['x-cors-grida-api-key'] = process.env.REACT_APP_GRIDA_KEY // for all requests
+
 const baseUrl = LOCAL_BACKEND ? "http://localhost:5000/api" : "https://cors.bridged.cc/http://165.227.107.127:5000/api"
 
 const symbolSortingFn = function (a, b) {
