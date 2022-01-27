@@ -1,8 +1,8 @@
 # Cryptocurrency Tracker
 
 ## Deployed version
-- The backend is [dockerized](https://landroe.com/posts/dockerize-and-deploy-asp-net-core-app-to-digital-ocean/) and running on my own Digital Ocean droplet. ([Click to test endpoint directly](http://165.227.107.127:5000/api/Ticks)).
-- The frontend is taking advantage of Github Pages. ([Click to check the live version](https://linomp.github.io/crypto_tracker/)).
+- The backend is dockerized and running on my own Digital Ocean droplet. ([Click to test endpoint directly](http://165.227.107.127:5000/api/Ticks)).
+<!-- - The frontend is taking advantage of Github Pages. ([Click to check the live version](https://linomp.github.io/crypto_tracker/)).-->
 
 
 ## Running the app locally
